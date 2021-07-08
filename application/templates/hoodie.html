@@ -1,0 +1,257 @@
+{% extends 'layout.html' %}
+{% block content %}
+
+<style>
+h1 {text-align: center; color:grey}
+h5 {text-align: center;
+    color:grey;
+    font-weight: bold;
+    padding-left: 20px;
+    padding-right: 20px;
+    }
+
+p {text-align: center; color:grey; font-weight: bold;}
+
+
+
+/* Create three equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 33.33%;
+  padding: 10px;
+
+}
+
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+  }
+}
+
+.image1
+{
+width:80%;
+padding-left: 100px;
+}
+
+</style>
+
+
+
+<div class="col-sm-12 col-md-8" style="padding-left: 20px;padding-top: 40px ;
+                                            padding-right: 20px;padding-bottom: 20px ;">
+    <div class="card card-style mb-2">
+        <div class="card-body">
+            <div class="chart-container" style="position: left;">
+                  <h1 style="font-family:'calibri'">knittie hoddies per amount of extras</h1>
+                  <h5 style="font-family:'calibri'">click on legend to focus or eliminate hoodies</h5>
+                <canvas id="hoodie" width="500" height="300" ></canvas>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+
+  <div class="column" style="background-color:#fff;">
+    <img src="{{url_for('static', filename ='hoodie_ash.png')}}" ; class="image1"/>
+    <p>ash hoodie<br>
+    3 extras<br>
+    red skateboard</p>
+  </div>
+
+  <div class="column" style="background-color:#fff;">
+    <img src="{{url_for('static', filename ='hoodie_forest.png')}}" ; class="image1"/>
+    <p>forest hoodie<br>
+    6 extras<br>
+    pink lovecraft</p>
+  </div>
+  <div class="column" style="background-color:#fff;">
+    <img src="{{url_for('static', filename ='hoodie_deep.png')}}" ; class="image1"/>
+    <p>deep hoodie<br>
+    4 extra<br>
+    happy pineapple</p>
+  </div>
+
+</div>
+
+
+
+{% block javascript %}
+
+
+<script>
+
+
+var ctx = document.getElementById('hoodie').getContext('2d');
+var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'eight'],
+        datasets: [{
+            label: 'fred(1)',
+            backgroundColor: 'rgb(204,0,0)',
+            barPercentage: 0.5,
+            data: [0,0,0,1,0,0,0,0],
+
+        },{
+            label: 'earth(1)',
+            backgroundColor: 'rgb(66,59,20)',
+            barPercentage: 0.5,
+            data: [0,0,0,1,0,0,0,0],
+
+        },{
+            label: 'lime(1)',
+            backgroundColor: 'rgb(106,255,77)',
+            barPercentage: 0.5,
+            data: [0,0,0,1,0,0,0,0],
+
+        },{
+            label: 'mustard(1)',
+            backgroundColor: 'rgb(207,155,104)',
+            barPercentage: 0.5,
+            data: [0,0,0,1,0,0,0,0],
+
+        },{
+            label: 'patrick(1)',
+            backgroundColor: 'rgb(33,30,10)',
+            barPercentage: 0.5,
+            data: [0,0,0,1,0,0,0,0],
+
+        },{
+            label: 'royal(1)',
+            backgroundColor: 'rgb(0,0,179)',
+            barPercentage: 0.5,
+            data: [0,0,0,1,0,0,0,0],
+
+        },{
+            label: 'deep(2)',
+            backgroundColor: 'rgb(0,77,230)',
+            barPercentage: 0.5,
+            data: [0,0,1,0,0,1,0,0],
+
+        },{
+            label: 'jackson(2)',
+            backgroundColor: 'rgb(64,0,128)',
+            barPercentage: 0.5,
+            data: [0,0,1,1,0,0,0,0],
+
+        },{
+            label: 'superknit(5)',
+            backgroundColor: 'rgb(136,77,255)',
+            barPercentage: 0.5,
+            data: [0,0,0,0,0,0,0,5],
+
+        },{
+            label: 'flame(1225)',
+            backgroundColor: 'rgb(255,153,51)',
+            barPercentage: 0.5,
+            data: [84,148,275,348,204,131,35,0],
+
+        },{
+            label: 'desert(1250)',
+            backgroundColor: 'rgb(219,197,176)',
+            barPercentage: 0.5,
+            data: [92,160,274,339,237,118,30,0],
+
+        },{
+            label: 'outrun(1250)',
+            backgroundColor: 'rgb(179,0,119)',
+            barPercentage: 0.5,
+            data: [85,155,253,358,217,140,42,0],
+
+        },{
+            label: 'lava(1251)',
+            backgroundColor: 'rgb(105,0,0)',
+            barPercentage: 0.5,
+            data: [86,168,252,382,212,126,25,0],
+
+        },{
+            label: 'forest(1251)',
+            backgroundColor: 'rgb(28,56,0)',
+            barPercentage: 0.5,
+            data: [89,143,300,360,215,116,28,0],
+
+        },{
+            label: 'urban(1251)',
+            backgroundColor: 'rgb(130,130,130)',
+            barPercentage: 0.5,
+            data: [87,168,282,343,219,121,31,0],
+        },{
+            label: 'ash(1257)',
+            backgroundColor: 'rgb(88,83,82)',
+            barPercentage: 0.5,
+            data: [93,185,278,332,206,135,28,0],
+
+
+
+            borderWidth: 2
+        }]
+    },
+    options: {
+
+        scales: {
+            y: {
+                beginAtZero: false
+            }
+        }
+    }
+});
+
+
+
+</script>
+
+
+
+<!--<aside>-->
+
+<!--<table class="center">-->
+<!--  <tr>-->
+<!--    <th>base</th>-->
+<!--    <th>quantity</th>-->
+<!--  </tr>-->
+<!--  <tr>-->
+<!--    <td>ninja black</td>-->
+<!--    <td>20</td>-->
+<!--  </tr>-->
+<!--  <tr>-->
+<!--    <td>ninja red</td>-->
+<!--    <td>69</td>-->
+<!--        <tr>-->
+<!--    <td>ninja pink</td>-->
+<!--    <td>109</td>-->
+<!--  </tr>-->
+<!--  <tr>-->
+<!--    <td>ninja blue</td>-->
+<!--    <td>141</td>  <tr>-->
+<!--    <td>ninja green</td>-->
+<!--    <td>170</td>-->
+<!--  </tr>-->
+<!--  <tr>-->
+<!--    <td>ninja yellow</td>-->
+<!--    <td>206</td>  <tr>-->
+<!--    <td>plain rice</td>-->
+<!--    <td>1583</td>-->
+<!--  </tr>-->
+
+<!--</table>-->
+
+<!--</aside>-->
+
+
+
+{% endblock %}
+
+
+
+{% endblock %}

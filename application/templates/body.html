@@ -1,0 +1,175 @@
+{% extends 'layout.html' %}
+{% block content %}
+
+<style>
+h1 {text-align: center; color:grey}
+h5 {text-align: center;
+    color:grey;
+    font-weight: bold;
+    padding-left: 20px;
+    padding-right: 20px;
+    }
+
+p {text-align: center; color:grey; font-weight: bold;}
+
+
+/* Create three equal columns that floats next to each other */
+.column {
+  float: right;
+  width: 33.33%;
+}
+
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+  }
+}
+
+.image1
+{
+width:80%;
+padding-left: 100px;
+}
+
+</style>
+
+
+<div class="col-sm-12 col-md-8" style="padding-left: 20px;padding-top: 40px ;
+                                            padding-right: 20px;padding-bottom: 20px ;">
+    <div class="card card-style mb-2">
+        <div class="card-body">
+            <div class="chart-container" style="position: left;">
+                <h1>knittie body types per amount of extras</h1>
+                <h5 style="font-family:'calibri'">click on legend to focus or eliminate body types</h5>
+                <canvas id="bodyprop" width="500" height="300" ></canvas>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="col-md-12">
+
+  <div class="column" style="background-color:#fff;">
+    <img src="{{url_for('static', filename ='body_avocado.png')}}" ; class="image1"/>
+    <p>avocado body<br>
+    4 extras<br>
+    honey teddycharles</p>
+  </div>
+  <div class="column" style="background-color:#fff;">
+    <img src="{{url_for('static', filename ='body_mintyfresh.png')}}" ; class="image1"/>
+    <p>mintyfresh body<br>
+    0 extras<br>
+    blue skateboard</p>
+  </div>
+  <div class="column" style="background-color:#fff;">
+    <img src="{{url_for('static', filename ='body_cinnamon.png')}}" ; class="image1"/>
+    <p>cinnamon body<br>
+    1 extra<br>
+    retro knittendo</p>
+  </div>
+
+</div>
+
+{% block javascript %}
+
+
+<script>
+
+
+var ctx = document.getElementById('bodyprop').getContext('2d');
+var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'eight'],
+        datasets: [{
+            label: 'hot as hell(1)',
+            backgroundColor: 'rgb(204,0,0)',
+            barPercentage: 0.5,
+            data: [0,0,1,0,0,0,0,0],
+        },{
+            label: 'frank(5)',
+            backgroundColor: 'rgb(0,0,0)',
+            barPercentage: 0.5,
+            data: [0,0,5,0,0,0,0,0],
+
+        },{
+            label: 'six feet under(5)',
+            backgroundColor: 'rgb(191,193,194)',
+            barPercentage: 0.5,
+            data: [0,0,0,0,5,0,0,0],
+
+        },{
+            label: 'superknit(5)',
+            backgroundColor: 'rgb(136,77,255)',
+            barPercentage: 0.5,
+            data: [0,0,0,0,0,0,0,5],
+
+        },{
+            label: 'honey(10)',
+            backgroundColor: 'rgb(245,222,179)',
+            barPercentage: 0.5,
+            data: [0,0,0,5,0,5,0,0],
+
+        },{
+            label: 'sunnysideup(1974)',
+            backgroundColor: 'rgb(122,25,58)',
+            barPercentage: 0.5,
+            data: [132,242,464,563,337,193,43,0],
+
+        },{
+            label: 'avocado(2000)',
+            backgroundColor: 'rgb(86,130,3)',
+            barPercentage: 0.5,
+            data: [125,246,430,588,371,197,43,0],
+
+        },{
+            label: 'cinnamon(2000)',
+            backgroundColor: 'rgb(60,20,20)',
+            barPercentage: 0.5,
+            data: [155,256,427,566,335,214,47,0],
+
+        },{
+            label: 'mintyfresh(2000)',
+            backgroundColor: 'rgb(0,127,255)',
+            barPercentage: 0.5,
+            data: [158,276,446,543,327,198,52,0],
+
+        },{
+            label: 'vontwothree(2000)',
+            backgroundColor: 'rgb(255,20,147)',
+            barPercentage: 0.5,
+            data: [154,280,433,540,330,198,65,0],
+
+            borderWidth: 2
+        }]
+    },
+    options: {
+
+        scales: {
+            y: {
+                beginAtZero: false
+            }
+        }
+    }
+});
+
+
+
+</script>
+
+
+
+{% endblock %}
+
+
+
+{% endblock %}

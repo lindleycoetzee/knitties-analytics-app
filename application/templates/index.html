@@ -1,0 +1,422 @@
+{% extends 'layout.html' %}
+{% block content %}
+
+<style>
+h1 {text-align: center; color:grey}
+p {text-align: center;
+    color:grey;
+    font-weight: bold;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+h4 {text-align: center;
+    color:grey;
+    font-weight: bold;
+    }
+
+h5 {text-align: center;
+    color:grey;
+    font-weight: bold;
+    }
+
+
+.image0
+{
+    max-width:60%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.image01
+{
+    max-width:32%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+  }
+}
+
+/* Create three equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 33.33%;
+  padding: 10px;
+
+}
+
+
+
+</style>
+
+<div class="col-sm-12 col-md-6" style="padding-left: 50px;padding-top: 40px ;
+                                            padding-right: 50px;padding-bottom: 20px ;" >
+    <div class="card card-style mb-2" >
+        <div class="card-body">
+            <div class="chart-container" style="position: left; ">
+                <h1>knittie extras distribution</h1>
+                <canvas id="extras" width="500" height="300" ></canvas>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="col-sm-12 col-md-6">
+    <div class="row justify-content-center">
+        <img src="{{url_for('static', filename ='five.png')}}" class="image0"/>
+        <h4 class="card-text">knittie with five extras</h4>
+        <h4 class="card-text">It is also holding a bruised pineapple prop</h4>
+    </div>
+</div>
+
+<div class="container">
+<button type="button" class="btn btn-dark btn-block" onclick="location.href='body'">
+    dynamic body chart</button>
+</div>
+
+<div class="col-sm-12 col-md-6">
+    <div class="row justify-content-center">
+        <img src="{{url_for('static', filename ='forest.png')}}"  class="image0"/>
+        <h4 class="card-text">knittie with forest hoodie</h4>
+    </div>
+</div>
+
+
+<div class="col-sm-12 col-md-6" style="padding-left: 50px;padding-top: 40px ;
+                                            padding-right: 50px;padding-bottom: 20px ;">
+    <div class="card card-style mb-2">
+        <div class="card-body">
+            <div class="chart-container" style="position: left;">
+                <h1>knittie hoodie distribution</h1>
+                <canvas id="hoodie" width="500" height="300" ></canvas>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+<button type="button" class="btn btn-dark btn-block" onclick="location.href='hoodie'">
+    dynamic hoodie chart</button>
+</div>
+
+<div class="col-sm-12 col-md-6" style="padding-left: 50px;padding-top: 40px ;
+                                            padding-right: 50px;padding-bottom: 20px ;">
+    <div class="card card-style mb-2">
+        <div class="card-body">
+            <div class="chart-container" style="position: left;">
+                <h1>knittie hat distribution</h1>
+                <canvas id="hat" width="500" height="300" ></canvas>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="col-sm-12 col-md-6">
+    <div class="row justify-content-center">
+        <img src="{{url_for('static', filename ='urban.png')}}"  class="image0"/>
+        <h4 class="card-text">knittie with urban hat</h4>
+    </div>
+</div>
+
+<div class="container">
+<button type="button" class="btn btn-dark btn-block" onclick="location.href='hat'">
+    dynamic hat chart</button>
+</div>
+
+
+<div class="col-sm-12 col-md-6">
+    <div class="row justify-content-center">
+        <img src="{{url_for('static', filename ='crypties skateboard.png')}}"  class="image0"/>
+        <h4 class="card-text">knittie with a crypties skateboard prop</h4>
+    </div>
+</div>
+
+
+<div class="col-sm-12 col-md-6" style="padding-left: 50px;padding-top: 40px ;
+                                            padding-right: 50px;padding-bottom: 20px ;">
+    <div class="card card-style mb-2">
+        <div class="card-body">
+            <div class="chart-container" style="position: left;">
+                <h1>knittie props distribution</h1>
+                <canvas id="prop" width="500" height="300" ></canvas>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+<button type="button" class="btn btn-dark btn-block" onclick="location.href='props'">
+    dynamic props chart</button>
+</div>
+
+
+<div class="col-sm-12 col-md-6" style="padding-left: 50px;padding-top: 20px ;
+                                            padding-right: 50px;padding-bottom: 20px ;">
+    <div class="card card-style mb-2">
+        <div class="card-body">
+            <div class="chart-container" style="position: left;">
+                <h1>knittie with matching hat and hoodie distribution</h1>
+                <canvas id="matching" width="500" height="300" ></canvas>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="col-sm-6 col-md-3">
+    <div class="row justify-content-around align-items-center">
+        <img src="{{url_for('static', filename ='one.png')}}"  class="image01"/>
+        <h5>  is matching knittie</h5>
+        <img src="{{url_for('static', filename ='hoodie_ash.png')}}"  class="image01"/>
+        <h5> not matching knittie</h5>
+        <img src="{{url_for('static', filename ='hat_desert.png')}}"  class="image01"/>
+        <h5>  is matching knittie</h5>
+        <img src="{{url_for('static', filename ='hat_peru.png')}}"  class="image01"/>
+        <h5> not matching knittie</h5>
+    </div>
+</div>
+
+
+
+<div class="col-sm-12 col-md-6" align="center">
+    <p><span>cryptoknitties offical website : </span>
+    <a href="https://cryptoknitties.io" target="_blank">https://cryptoknitties.io</a></p>
+
+</div>
+
+
+
+{% block javascript %}
+
+<script>
+
+
+var ctx = document.getElementById('extras').getContext('2d');
+var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: ['zero', 'one', 'two', 'three','four', 'five','six', 'eight'],
+        datasets: [{
+            label: '',
+            barPercentage: 0.5,
+            data: [724,1300,2206,2805,1705,1005,250,5],
+
+            backgroundColor: [
+              'rgb(0,0,0)',
+              'rgb(128,255,160)',
+              'rgb(0,115,190)',
+              'rgb(255,215,25)',
+              'rgb(122,250,58)',
+              'rgb(43,25,20)',
+              'rgb(219,199,163)',
+            ],
+
+            borderWidth: 2
+        }]
+    },
+    options: {
+            legend: {
+            display: false
+         },
+        scales: {
+            y: {
+                beginAtZero: false
+            }
+        }
+    }
+});
+
+
+
+
+var ctx = document.getElementById('hoodie').getContext('2d');
+var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: ['fred', 'earth', 'lime', 'mustard', 'patrick', 'royal',  'deep', 'jackson', 'superknit', 'flame',
+        'desert', 'outrun', 'lava', 'forest', 'urban', 'ash'],
+        datasets: [{
+            label: '',
+            barPercentage: 0.5,
+            data: [1, 1, 1, 1, 1, 1, 2, 2, 5, 1225, 1250, 1250, 1251, 1251, 1251,1257],
+
+            backgroundColor: [
+              'rgb(204,0,0)',
+              'rgb(66,59,20)',
+              'rgb(106,255,77)',
+              'rgb(207,155,104)',
+              'rgb(33,30,10)',
+              'rgb(0,0,179)',
+              'rgb(0,77,230)',
+              'rgb(64,0,128)',
+              'rgb(136,77,255)',
+              'rgb(255,153,51)',
+              'rgb(219,197,176)',
+              'rgb(179,0,119)',
+              'rgb(105,0,0)',
+              'rgb(28,56,0)',
+              'rgb(130,130,130)',
+              'rgb(88,83,82)',
+            ],
+
+            borderWidth: 2
+        }]
+    },
+    options: {
+            legend: {
+            display: false
+         },
+        scales: {
+            y: {
+                beginAtZero: false
+            }
+        }
+    }
+});
+
+var ctx = document.getElementById('hat').getContext('2d');
+var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: ['fred',  'mustard', 'patrick', 'royal', 'jackson', 'superknit', 'flat bill', 'horns', 'bul',
+        'outrun', 'desert','peru','flame', 'forest', 'urban', 'lava', 'deep', 'ash'],
+        datasets: [{
+            label: '',
+            barPercentage: 0.5,
+            data: [1, 1, 1, 1, 2, 5, 5, 6, 975, 1000, 1000, 1000, 1000, 1000, 1000, 1001 ,1001, 1001],
+
+            backgroundColor: [
+              'rgb(204,0,0)',
+              'rgb(207,155,104)',
+              'rgb(33,30,10)',
+              'rgb(0,0,179)',
+              'rgb(0,77,230)',
+              'rgb(64,0,128)',
+              'rgb(136,77,255)',
+              'rgb(88,83,82)',
+              'rgb(219,197,176)',
+              'rgb(179,0,119)',
+              'rgb(219,197,176)',
+              'rgb(0,0,0)',
+              'rgb(255,153,51)',
+              'rgb(28,56,0)',
+              'rgb(130,130,130)',
+              'rgb(105,0,0',
+              'rgb(0,77,230)',
+              'rgb(88,83,82)',
+            ],
+
+            borderWidth: 2
+        }]
+    },
+    options: {
+            legend: {
+            display: false
+         },
+        scales: {
+            y: {
+                beginAtZero: false
+            }
+        }
+    }
+});
+
+
+
+var ctx = document.getElementById('prop').getContext('2d');
+var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: ['fork skateboard', 'mint skateboard', 'bolts', 'flat bill','crypties skateboard', 'pink knittendo',
+        'green skateboard','latte teddycharles', 'cute pineapple', 'lume lovecraft','orange lovecraft',
+        'cortado teddycharles', 'blue skateboard','bruised pineapple', 'lime knittendo', 'happy pineapple',
+       'retro knittendo', 'red skateboard', 'honey teddycharles', 'pink lovecraft'],
+        datasets: [{
+            label: '',
+            barPercentage: 0.5,
+            data: [1,1,1,5,5,10,195,201,204,205,210,564,594,615,631,637,1159,1164,1179,1198,1222],
+
+            backgroundColor: [
+              'rgb(204,0,0)',
+              'rgb(128,255,170)',
+              'rgb(0,0,0)',
+              'rgb(0,115,19)',
+              'rgb(255,25,25)',
+              'rgb(122,25,58)',
+              'rgb(43,255,0)',
+              'rgb(219,199,163)',
+              'rgb(255,197,25)',
+              'rgb(128,191,255)',
+              'rgb(181,60,0)',
+              'rgb(41,13,0)',
+              'rgb(0,255,255)',
+              'rgb(227,115,30)',
+              'rgb(33,204,44)',
+              'rgb(255,195,77)',
+              'rgb(118,107,120)',
+              'rgb(194,38,27)',
+              'rgb(145,117,41)',
+              'rgb(255,33,166)',
+            ],
+
+
+
+            borderWidth: 2
+        }]
+    },
+    options: {
+            legend: {
+            display: false
+         },
+        scales: {
+            y: {
+                beginAtZero: false
+            }
+        }
+    }
+});
+
+var ctx = document.getElementById('matching').getContext('2d');
+var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: ['matching', 'not matching'],
+        datasets: [{
+            label: '',
+            barPercentage: 0.5,
+            data: [889,9111],
+
+            backgroundColor: [
+              'rgb(43,25,20)',
+              'rgb(219,199,163)',
+            ],
+
+            borderWidth: 2
+        }]
+    },
+    options: {
+            legend: {
+            display: false
+         },
+        scales: {
+            y: {
+                beginAtZero: false
+            }
+        }
+    }
+});
+
+</script>
+
+
+{% endblock %}
+
+
+
+{% endblock %}

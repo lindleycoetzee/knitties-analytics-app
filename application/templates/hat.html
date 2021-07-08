@@ -1,0 +1,220 @@
+{% extends 'layout.html' %}
+{% block content %}
+
+<style>
+h1 {text-align: center; color:grey}
+h5 {text-align: center;
+    color:grey;
+    font-weight: bold;
+    padding-left: 20px;
+    padding-right: 20px;
+    }
+
+p {text-align: center; color:grey; font-weight: bold;}
+
+
+/* Create three equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 33.33%;
+  padding: 10px;
+
+}
+
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+  }
+}
+
+.image1
+{
+width:80%;
+padding-left: 100px;
+}
+
+</style>
+
+<div class="col-sm-12 col-md-8" style="padding-left: 20px;padding-top: 40px ;
+                                            padding-right: 20px;padding-bottom: 20px ;">
+    <div class="card card-style mb-2">
+        <div class="card-body">
+            <div class="chart-container" style="position: left;">
+        <h1 style="font-family:'calibri'">knittie hats per amount of extras</h1>
+        <h5 style="font-family:'calibri'">click on legend to focus or eliminate hats</h5>
+                <canvas id="hatprop" width="500" height="300" ></canvas>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="row">
+
+  <div class="column" style="background-color:#fff;">
+    <img src="{{url_for('static', filename ='hat_urban.png')}}" class="image1"/>
+    <p>urban hat<br>
+    6 extras<br>
+    green skateboard</p>
+  </div>
+
+  <div class="column" style="background-color:#fff;">
+    <img src="{{url_for('static', filename ='hat.png')}}"  class="image1"/>
+    <p>bul hat<br>
+    4 extras<br>
+    pink lovecraft</p>
+  </div>
+  <div class="column" style="background-color:#fff;">
+    <img src="{{url_for('static', filename ='hat_desert.png')}}" ; class="image1"/>
+    <p>desert hat<br>
+    1 extra<br>
+    retro knittendo</p>
+  </div>
+
+</div>
+
+
+{% block javascript %}
+
+
+<script>
+
+
+var ctx = document.getElementById('hatprop').getContext('2d');
+var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'eight'],
+        datasets: [{
+            label: 'fred(1)',
+            backgroundColor: 'rgb(204,0,0)',
+            barPercentage: 0.5,
+            data: [0,0,0,1,0,0,0,0],
+        },{
+            label: 'mustard(1)',
+            backgroundColor: 'rgb(207,155,104)',
+            barPercentage: 0.5,
+            data: [0,0,0,1,0,0,0,0],
+
+        },{
+            label: 'patrick(1)',
+            backgroundColor: 'rgb(0,0,0)',
+            barPercentage: 0.5,
+            data: [0,0,0,1,0,0,0,0],
+
+        },{
+            label: 'royal(1)',
+            backgroundColor: 'rgb(0,0,179)',
+            barPercentage: 0.5,
+            data: [0,0,0,1,0,0,0,0],
+
+        },{
+            label: 'jackson(2)',
+            backgroundColor: 'rgb(64,0,128)',
+            barPercentage: 0.5,
+            data: [0,0,1,1,0,0,0,0],
+
+        },{
+            label: 'flat bill(5)',
+            backgroundColor: 'rgb(122,25,58)',
+            barPercentage: 0.5,
+            data: [0,0,0,0,0,5,0,0],
+
+        },{
+            label: 'superknit(5)',
+            backgroundColor: 'rgb(136,77,255)',
+            barPercentage: 0.5,
+            data: [0,0,0,0,0,0,0,5],
+
+        },{
+            label: 'horns(6)',
+            backgroundColor: 'rgb(189,170,152)',
+            barPercentage: 0.5,
+            data: [0,0,1,0,5,0,0,0],
+
+        },{
+            label: 'bull(975)',
+            backgroundColor: 'rgb(97,87,78  )',
+            barPercentage: 0.5,
+            data: [79,130,207,278,163,96,22,0],
+
+        },{
+            label: 'desert(1000)',
+            backgroundColor: 'rgb(219,197,176)',
+            barPercentage: 0.5,
+            data: [74,107,198,294,181,119,27,0],
+
+        },{
+            label: 'flame(1000)',
+            backgroundColor: 'rgb(255,153,51)',
+            barPercentage: 0.5,
+            data: [69,115,244,256,169,127,20,0],
+        },{
+            label: 'forest(1000)',
+            backgroundColor: 'rgb(28,56,0)',
+            barPercentage: 0.5,
+            data: [69,137,217,272,179,101,25,0],
+        },{
+            label: 'outrun(1000)',
+            backgroundColor: 'rgb(179,0,119)',
+            barPercentage: 0.5,
+            data: [80,126,247,261,158,100,28,0],
+        },{
+            label: 'peru(1000)',
+            backgroundColor: 'rgb(128,0,0)',
+            barPercentage: 0.5,
+            data: [69,136,227,281,173,92,22,0],
+        },{
+            label: 'urban(1000)',
+            backgroundColor: 'rgb(130,130,130)',
+            barPercentage: 0.5,
+            data: [72,138,223,279,168,94,26,0],
+        },{
+            label: 'ash(1001)',
+            backgroundColor: 'rgb(88,83,82)',
+            barPercentage: 0.5,
+            data: [76,113,232,288,166,91,35,0],
+        },{
+            label: 'deep(1001)',
+            backgroundColor: 'rgb(0,77,230)',
+            barPercentage: 0.5,
+            data: [77,140,221,278,167,97,21,0],
+        },{
+            label: 'lava(1001)',
+            backgroundColor: 'rgb(105,0,0)',
+            barPercentage: 0.5,
+            data: [59,158,188,313,176,83,24,0],
+
+            borderWidth: 2
+        }]
+    },
+    options: {
+
+        scales: {
+            y: {
+                beginAtZero: false
+            }
+        }
+    }
+});
+
+
+
+</script>
+
+
+
+{% endblock %}
+
+
+
+{% endblock %}

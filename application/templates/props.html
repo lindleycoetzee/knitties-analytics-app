@@ -1,0 +1,224 @@
+{% extends 'layout.html' %}
+{% block content %}
+
+<style>
+h1 {text-align: center; color:grey}
+h5 {text-align: center;
+    color:grey;
+    font-weight: bold;
+    padding-left: 20px;
+    padding-right: 20px;
+    }
+
+p {text-align: center; color:grey; font-weight: bold;}
+
+/* Create three equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 33.33%;
+  padding: 10px;
+
+}
+
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+  }
+}
+
+.image1
+{
+width:80%;
+padding-left: 100px;
+}
+</style>
+
+<div class="col-sm-12 col-md-8" style="padding-left: 20px;padding-top: 40px ;
+                                            padding-right: 20px;padding-bottom: 20px ;">
+    <div class="card card-style mb-2">
+        <div class="card-body">
+            <div class="chart-container" style="position: left;">
+                <h1>knittie props per amount of extras</h1>
+                <h5>click on legend to focus or eliminate props</h5>
+                <canvas id="props" width="500" height="300" ></canvas>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+
+  <div class="column" style="background-color:#fff;">
+    <img src="{{url_for('static', filename ='prop_orange lovecraft.png')}}" ; class="image1"/>
+    <p>orange lovecraft<br>
+    3 extras</p>
+  </div>
+
+  <div class="column" style="background-color:#fff;">
+    <img src="{{url_for('static', filename ='prop_fork skateboard.png')}}" ; class="image1"/>
+    <p>fork skateboard<br>
+    2 extras</p>
+  </div>
+  <div class="column" style="background-color:#fff;">
+    <img src="{{url_for('static', filename ='prop_honey teddycharles.png')}}" ; class="image1"/>
+    <p>honey teddycharles<br>
+    4 extras</p>
+  </div>
+
+</div>
+
+{% block javascript %}
+
+
+<script>
+
+
+var ctx = document.getElementById('props').getContext('2d');
+var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'eight'],
+        datasets: [{
+            label: 'fork skateboard(1)',
+            backgroundColor: 'rgb(204,0,0)',
+            barPercentage: 0.5,
+            data: [0,0,1,0,0,0,0,0],
+        },{
+            label: 'mint skateboard(1)',
+            backgroundColor: 'rgb(128,255,170)',
+            barPercentage: 0.5,
+            data: [0,0,0,0,0,0,0,1],
+
+        },{
+            label: 'bolts(5)',
+            backgroundColor: 'rgb(0,0,0)',
+            barPercentage: 0.5,
+            data: [0,0,5,0,0,0,0,0],
+
+        },{
+            label: 'flat bill(5)',
+            backgroundColor: 'rgb(0,115,19)',
+            barPercentage: 0.5,
+            data: [0,0,0,5,0,0,0,0],
+
+        },{
+            label: 'crypties skateboard(10)',
+            backgroundColor: 'rgb(255,25,25)',
+            barPercentage: 0.5,
+            data: [0,0,0,0,5,5,0,0],
+
+        },{
+            label: 'pink knittendo(195)',
+            backgroundColor: 'rgb(122,25,58)',
+            barPercentage: 0.5,
+            data: [16,30,41,56,38,9,5,0],
+
+        },{
+            label: 'green skateboard(201)',
+            backgroundColor: 'rgb(43,255,0)',
+            barPercentage: 0.5,
+            data: [17,36,41,53,37,15,2,0],
+
+        },{
+            label: 'latte teddycharles(204)',
+            backgroundColor: 'rgb(219,199,163)',
+            barPercentage: 0.5,
+            data: [16,25,40,58,41,19,5,0],
+
+        },{
+            label: 'cute pineapple(205)',
+            backgroundColor: 'rgb(255,197,25)',
+            barPercentage: 0.5,
+            data: [11,23,52,51,34,27,7,0],
+
+        },{
+            label: 'lume lovecraft(210)',
+            backgroundColor: 'rgb(128,191,255)',
+            barPercentage: 0.5,
+            data: [14,31,50,61,31,17,6,0],
+
+        },{
+            label: 'orange lovecraft(564)',
+            backgroundColor: 'rgb(181,60,0)',
+            barPercentage: 0.5,
+            data: [42,74,122,141,123,53,9,0],
+        },{
+            label: 'cortado teddycharles(594)',
+            backgroundColor: 'rgb(41,13,0)',
+            barPercentage: 0.5,
+            data: [32,88,130,173,96,58,17,0],
+        },{
+            label: 'blue skateboard(615)',
+            backgroundColor: 'rgb(0,255,255)',
+            barPercentage: 0.5,
+            data: [43,73,145,153,109,76,16,0],
+        },{
+            label: 'bruised pineapple(631)',
+            backgroundColor: 'rgb(227,115,30)',
+            barPercentage: 0.5,
+            data: [49,78,117,193,103,76,14,1],
+        },{
+            label: 'lime knittendo(637)',
+            backgroundColor: 'rgb(33,204,44)',
+            barPercentage: 0.5,
+            data: [49,71,147,192,97,57,24,0],
+        },{
+            label: 'happy pineapple(1159)',
+            backgroundColor: 'rgb(255,195,77)',
+            barPercentage: 0.5,
+            data: [91,165,265,321,194,103,20,0],
+        },{
+            label: 'retro knittendo(1164)',
+            backgroundColor: 'rgb(118,107,120)',
+            barPercentage: 0.5,
+            data: [90,154,272,343,172,108,24,1],
+        },{
+            label: 'red skateboard(1179)',
+            backgroundColor: 'rgb(194,38,27)',
+            barPercentage: 0.5,
+            data: [90,134,257,321,213,133,31,0],
+        },{
+            label: 'honey teddycharles(1198)',
+            backgroundColor: 'rgb(145,117,41)',
+            barPercentage: 0.5,
+            data: [87,149,266,340,201,126,28,1],
+
+        },{
+            label: 'pink lovecraft(1222)',
+            backgroundColor: 'rgb(255,33,166)',
+            barPercentage: 0.5,
+            data: [77,169,255,344,211,123,42,1],
+
+
+            borderWidth: 2
+        }]
+    },
+    options: {
+
+        scales: {
+            y: {
+                beginAtZero: false
+            }
+        }
+    }
+});
+
+
+
+</script>
+
+
+{% endblock %}
+
+
+
+{% endblock %}
